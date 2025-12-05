@@ -1,0 +1,25 @@
+[Files List]
+C:\Program Files (x86)\Aldec\Active-HDL 6.3\VLIB\STD/src/standard.vhd=S
+C:\Program Files (x86)\Aldec\Active-HDL 6.3\VLIB\STD/src/textio.vhd=S
+C:\Program Files (x86)\Aldec\Active-HDL 6.3\VLIB\STD/src/textio_b.vhd=S
+C:\Program Files (x86)\Aldec\Active-HDL 6.3\VLIB\IEEE/src/stdlogic.vhd=S
+C:\Program Files (x86)\Aldec\Active-HDL 6.3\VLIB\IEEE/src/numstd.vhd=S
+D:\vhdl\DESIGN3\Design3/src/MUX.vhd=S
+D:\vhdl\DESIGN3\Design3/src/MEMWB.vhd=S
+D:\vhdl\DESIGN3\Design3/src/DATAMEM.vhd=S
+D:\vhdl\DESIGN3\Design3/src/EXMEM.vhd=S
+D:\vhdl\DESIGN3\Design3/src/ADDER.vhd=S
+D:\vhdl\DESIGN3\Design3/src/SL.vhd=S
+D:\vhdl\DESIGN3\Design3/src/ALU.vhd=S
+D:\vhdl\DESIGN3\Design3/src/MUX3.vhd=S
+D:\vhdl\DESIGN3\Design3/src/FU.vhd=S
+D:\vhdl\DESIGN3\Design3/src/ALUC.vhd=S
+D:\vhdl\DESIGN3\Design3/src/IDEX.vhd=S
+D:\vhdl\DESIGN3\Design3/src/HDU.vhd=S
+D:\vhdl\DESIGN3\Design3/src/SE.vhd=S
+D:\vhdl\DESIGN3\Design3/src/REG.vhd=S
+D:\vhdl\DESIGN3\Design3/src/CONTROL.vhd=S
+D:\vhdl\DESIGN3\Design3/src/IFID.vhd=S
+D:\vhdl\DESIGN3\Design3/src/IM.vhd=S
+D:\vhdl\DESIGN3\Design3/src/PC.vhd=S
+D:\vhdl\DESIGN3\Design3/src/MIPS_TB.vhd=S

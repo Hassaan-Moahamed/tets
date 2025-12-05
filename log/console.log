@@ -1,0 +1,224 @@
+asim mips_tb tb_arch
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# asim: Stack memory: 32MB
+# asim: Retval memory: 32MB
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 4202 kB (elbread=1071 elab2=1908 kernel=1223 sdf=0)
+# 06:45 ?, 05 I???E?, 2025
+# Simulation has been initialized
+# Selected Top-Level: mips_tb (tb_arch)
+run
+# KERNEL: ERROR  : TextIO internal error: Could not read type "STRING" from line.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /IM1,  Process: initmem.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 0
+# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 0
+# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x08020000
+# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 1
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 4
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x08030001
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ID Stage - Instruction: 0x08020000
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 2
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 8
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ID Stage - Instruction: 0x08030001
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : EX Stage - ALU Result: 0
+# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 3
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 12
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : EX Stage - ALU Result: 1
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : MEM Stage - Reading from address: 0 Data: 4
+# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 4
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 16
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x80432000
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : MEM Stage - Reading from address: 1 Data: 5
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : WB Stage - Writing to Register R2 Value: 4
+# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 5
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 20
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x80432000
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ID Stage - Instruction: 0x80432000
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : WB Stage - Writing to Register R3 Value: 5
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 6
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 24
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ID Stage - Instruction: 0x80432000
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : EX Stage - ALU Result: 4
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 7
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 28
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : EX Stage - ALU Result: 9
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 8
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 32
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : WB Stage - Writing to Register R4 Value: 4
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : *** RESULT: 4 + 5 = 4 ***
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 9
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 36
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : WB Stage - Writing to Register R4 Value: 9
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : *** RESULT: 4 + 5 = 9 ***
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 10
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 40
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 11
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 44
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 12
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 48
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 13
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 52
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 14
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 56
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Cycle: 15
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ========================================
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : PC: 60
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Instruction Fetch: 0x00000000
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : Simulation Complete
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# Simulation has been stopped

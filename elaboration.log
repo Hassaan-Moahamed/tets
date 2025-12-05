@@ -1,0 +1,35 @@
+elbread.dll ver. 1.0.5.365 Fri Dec 05 18:45:03 2025
+
+
+---------------------------------
+Entity   | Architecture | Library
+---------------------------------
+mips_tb  | tb_arch      | Design3
+pc       | pc1          | design3
+adder    | add1         | design3
+im       | im1          | design3
+mux      | mux1         | design3
+ifid     | ifid1        | design3
+control  | ctrl1        | design3
+reg      | reg1         | design3
+se       | se1          | design3
+hdu      | hdu1         | design3
+idex     | idex1        | design3
+aluc     | aluc1        | design3
+fu       | fu1          | design3
+mux3     | mux3_1       | design3
+alu      | alu1         | design3
+sl       | sl1          | design3
+exmem    | exmem1       | design3
+datamem  | datamem1     | design3
+memwb    | memwb1       | design3
+---------------------------------
+
+-------------------------
+Package         | Library
+-------------------------
+standard        | std
+textio          | std
+std_logic_1164  | ieee
+numeric_std     | ieee
+-------------------------

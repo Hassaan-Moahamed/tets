@@ -1,0 +1,82 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=1
+Current Config=compile
+
+[Configurations]
+compile=Design3
+
+[Library]
+Design3=.\Design3.lib
+
+[$LibMap$]
+Design3=.
+Active_lib=
+
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+SYNTH_TOOL=<none>
+IMPL_TOOL=<none>
+FAMILY=
+FLOWTOOLS=ONLY_IMPL
+
+[IMPLEMENTATION]
+UCF=
+
+[HierarchyViewer]
+SortInfo=u
+HierarchyInformation=mips_comprehensive_tb|tb_arch|0 mips_tb|tb_arch|0 mips_top|mips_arch|0 sg|sg1|0 
+ShowHide=ShowTopLevel
+Selected=
+
+[Files]
+/ADDER.vhd=-1
+/ALU.vhd=-1
+/ALUC.vhd=-1
+/CONTROL.vhd=-1
+/DATAMEM.vhd=-1
+/EXMEM.vhd=-1
+/FU.vhd=-1
+/HDU.vhd=-1
+/IDEX.vhd=-1
+/IFID.vhd=-1
+/IM.vhd=-1
+/MEMWB.vhd=-1
+/MUX.vhd=-1
+/MUX3.vhd=-1
+/PC.vhd=-1
+/REG.vhd=-1
+/SE.vhd=-1
+/SG.vhd=-1
+/SL.vhd=-1
+/MIPS_TB.vhd=-1
+/MIPS_TOP.vhd=-1
+/instruction.txt=-1
+
+[Files.Data]
+.\src\ADDER.vhd=VHDL Source Code
+.\src\ALU.vhd=VHDL Source Code
+.\src\ALUC.vhd=VHDL Source Code
+.\src\CONTROL.vhd=VHDL Source Code
+.\src\DATAMEM.vhd=VHDL Source Code
+.\src\EXMEM.vhd=VHDL Source Code
+.\src\FU.vhd=VHDL Source Code
+.\src\HDU.vhd=VHDL Source Code
+.\src\IDEX.vhd=VHDL Source Code
+.\src\IFID.vhd=VHDL Source Code
+.\src\IM.vhd=VHDL Source Code
+.\src\MEMWB.vhd=VHDL Source Code
+.\src\MUX.vhd=VHDL Source Code
+.\src\MUX3.vhd=VHDL Source Code
+.\src\PC.vhd=VHDL Source Code
+.\src\REG.vhd=VHDL Source Code
+.\src\SE.vhd=VHDL Source Code
+.\src\SG.vhd=VHDL Source Code
+.\src\SL.vhd=VHDL Source Code
+.\src\MIPS_TB.vhd=VHDL Source Code
+.\src\MIPS_TOP.vhd=VHDL Source Code
+.\src\instruction.txt=Text File
+

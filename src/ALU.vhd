@@ -1,0 +1,64 @@
+--*   . 001 => subtract                 *
+--*   . 010 => and                      *
+--*   . 011 => or                       *
+--*   . 100 => nor                      *
+--*   . 101 => logical left shift       *
+--*   . 110 => logical right shift      *
+--*   . 111 => *2^16                    *
+--*                                     *
+--*   Inputs note:                      *
+--*   .I1 is the input from registers   *
+--*   .I2 is the input from mux         *
+--*                                     *
+--*   FlagZ note:                       *
+--*   .O2 = 1 if inputs are equal       *
+--*   .O2 = 0 if inputs are not equal   *
+--*                                     *
+--***************************************
+--*   ALU (Arithmetic Logic Unit)       *
+--***************************************
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity ALU is
+port(I1, I2: in std_ulogic_vector(31 downto 0);
+     C1: in std_ulogic_vector(2 downto 0);
+     O1: out std_ulogic_vector(31 downto 0);
+     O2: out std_ulogic);
+end ALU;
+
+architecture ALU1 of ALU is
+    signal D1, D2: signed(31 downto 0) := (others => '0');
+    signal D3: std_ulogic_vector(2 downto 0) := (others => '0');
+    signal R1: signed(31 downto 0) := (others => '0');
+    signal FlagZ: std_ulogic := '0';
+    signal shift_amount: integer range 0 to 31;
+begin
+    D1 <= signed(I1);
+    D2 <= signed(I2);
+    D3 <= C1;
+    
+    -- Safe shift amount (use only lower 5 bits, clamp to 0-31 range)
+    shift_amount <= to_integer(unsigned(I2(4 downto 0))) when to_integer(D2) >= 0 and to_integer(D2) < 32 
+                    else 0;
+    
+    -- ALU operations
+    with D3 select R1 <= 
+        D1 + D2                   when "000",  -- Add
+        D1 - D2                   when "001",  -- Subtract
+        D1 and D2                 when "010",  -- AND
+        D1 or D2                  when "011",  -- OR
+        D1 nor D2                 when "100",  -- NOR
+        shift_left(D1, shift_amount)  when "101",  -- Logical left shift (FIXED)
+        shift_right(D1, shift_amount) when "110",  -- Logical right shift (FIXED)
+        D2 sll 16                 when "111",  -- Load upper immediate (*2^16)
+        to_signed(-1, 32)         when others; -- Error condition
+    
+    -- Zero flag (used for branch equal)
+    FlagZ <= '1' when R1 = to_signed(0, 32) else '0';
+    
+    O1 <= std_ulogic_vector(R1);
+    O2 <= FlagZ;
+    
+end ALU1;
