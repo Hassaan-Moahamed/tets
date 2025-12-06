@@ -1,1 +1,1 @@
--w -s "D:\vhdl\DESIGN3\library.cfg"  -j "D:\vhdl\DESIGN3\Design3\projlib.cfg"  -d "D:\vhdl\DESIGN3\Design3\compile\"  -work Design3 -dbg -e 100 "D:\vhdl\DESIGN3\Design3\src\MIPS_TB.vhd" 
+-w -s "D:\vhdl\DESIGN3\library.cfg"  -j "D:\vhdl\DESIGN3\Design3\projlib.cfg"  -d "D:\vhdl\DESIGN3\Design3\compile\"  -work Design3 -dbg -e 100 "D:\vhdl\DESIGN3\Design3\src\DATAMEM.vhd" 

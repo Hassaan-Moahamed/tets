@@ -28,7 +28,7 @@ UCF=
 
 [HierarchyViewer]
 SortInfo=u
-HierarchyInformation=mips_comprehensive_tb|tb_arch|0 mips_tb|tb_arch|0 mips_top|mips_arch|0 sg|sg1|0 
+HierarchyInformation=mips_tb|tb_arch|0
 ShowHide=ShowTopLevel
 Selected=
 

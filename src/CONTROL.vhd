@@ -43,7 +43,7 @@ begin
 	
 --	R1 <= (RegDst)&(Jump)&(Branch)&(MemRead)&(MemtoReg)&(ALUOp)&(MemWrite)&(ALUSrc)&(RegWrite)
 	with D1 select R1 <=
-	"10000000001" when "100000", --R
+	"10000000001" when "000000", --R
 	"00000001011" when "000001", --I sum arith
 	"00011001011" when "000010", --I sum load
 	"00001001110" when "000011", --I sum store
