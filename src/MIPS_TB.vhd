@@ -1,7 +1,7 @@
 --*********************************************************
---*   TESTBENCH FOR MIPS PROCESSOR - FIXED VERSION      *
---*   Tests: Addition of 4 + 5                           *
---*   With detailed reporting and forwarding monitoring  *
+--*   ENHANCED TESTBENCH FOR MIPS PROCESSOR             *
+--*   Tests: Addition of 4 + 5 with detailed reporting  *
+--*   Shows all pipeline stages and hazard detection    *
 --*********************************************************
 
 library ieee;
@@ -14,7 +14,7 @@ end MIPS_TB;
 
 architecture TB_ARCH of MIPS_TB is
 
--- Component Declarations
+-- Component Declarations (same as before)
 component PC is
 port(I1: in std_ulogic_vector(31 downto 0);
      O1: out std_ulogic_vector(31 downto 0);
@@ -31,7 +31,7 @@ component REG is
 port(I1, I2, I3: in std_ulogic_vector(4 downto 0);
      I4: in std_ulogic_vector(31 downto 0);
      C1: in std_ulogic;
-     CLK: in std_ulogic;  -- CLOCK IS A SINGLE BIT!
+     CLK: in std_ulogic;
      O1, O2: out std_ulogic_vector(31 downto 0));
 end component;
 
@@ -197,6 +197,26 @@ begin
     return result;
 end function;
 
+-- Function to decode instruction mnemonic
+function decode_instruction(instr: std_ulogic_vector) return string is
+    variable opcode: std_ulogic_vector(5 downto 0);
+begin
+    opcode := instr(31 downto 26);
+    case opcode is
+        when "000000" => 
+            if instr = X"00000000" then
+                return "NOP";
+            else
+                return "R-type (ADD/SUB/AND/OR/NOR)";
+            end if;
+        when "000010" => return "LOAD (lw)";
+        when "000011" => return "STORE (sw)";
+        when "001000" => return "BRANCH (beq)";
+        when "010000" => return "JUMP (j)";
+        when others => return "UNKNOWN";
+    end case;
+end function;
+
 begin
 
     -- Clock Generation (100 ns period)
@@ -212,93 +232,25 @@ begin
     end process;
 
     -- Instruction Fetch Stage
-    PC1: PC port map(
-        I1 => PCIN,
-        O1 => INSTR_ADDRESS,
-        C1 => PCEnable,
-        clk => clk
-    );
-    
-    ADD1: ADDER port map(
-        I1 => INSTR_ADDRESS,
-        I2 => FOUR,
-        O1 => SUM0
-    );
-    
-    IM1: IM generic map(N => 128)
-           port map(
-               I1 => INSTR_ADDRESS,
-               O1 => INSTR0
-           );
-    
-    MUX1: MUX generic map(N => 32)
-              port map(
-                  I1 => SUM0,
-                  I2 => BRANCH_ADDRESS,
-                  C1 => ANDCTRL,
-                  O1 => PCIN
-              );
+    PC1: PC port map(PCIN, INSTR_ADDRESS, PCEnable, clk);
+    ADD1: ADDER port map(INSTR_ADDRESS, FOUR, SUM0);
+    IM1: IM generic map(N => 128) port map(INSTR_ADDRESS, INSTR0);
+    MUX1: MUX generic map(N => 32) port map(SUM0, BRANCH_ADDRESS, ANDCTRL, PCIN);
 
     -- IF/ID Pipeline Register
-    IFID1: IFID port map(
-        I1 => SUM0,
-        I2 => INSTR0,
-        O1 => SUM1,
-        O2 => INSTR1,
-        C1 => IFIDEnable,
-        clk => clk
-    );
+    IFID1: IFID port map(SUM0, INSTR0, SUM1, INSTR1, IFIDEnable, clk);
     
     -- Instruction Decode Stage
-    CONTROL1: CONTROL port map(
-        I1 => INSTR1(31 downto 26),
-        O1 => RegDstx,
-        O2 => Jumpx,
-        O3 => Branchx,
-        O4 => MemReadx,
-        O5 => MemtoRegx,
-        O6 => ALUOpx,
-        O7 => MemWritex,
-        O8 => ALUSrcx,
-        O9 => RegWritex
-    );
-    
-    -- FIXED: Correct port mapping for REG with CLK as single bit
-    REG1: REG port map(
-        I1 => INSTR1(25 downto 21),  -- Rs
-        I2 => INSTR1(20 downto 16),  -- Rt
-        I3 => WR_ADDRESS,             -- Write register
-        I4 => WRITEDATA,              -- Write data
-        C1 => RegWrite,               -- RegWrite enable
-        CLK => clk,                   -- CLOCK (single bit!)
-        O1 => READDATA1,              -- Read data 1
-        O2 => READDATA2               -- Read data 2
-    );
-    
-    SE1: SE port map(
-        I1 => INSTR1(15 downto 0),
-        O1 => CONSTANT_VALUE0
-    );
+    CONTROL1: CONTROL port map(INSTR1(31 downto 26), RegDstx, Jumpx, Branchx, 
+                                MemReadx, MemtoRegx, MemWritex, ALUSrcx, RegWritex, ALUOpx);
+    REG1: REG port map(INSTR1(25 downto 21), INSTR1(20 downto 16), WR_ADDRESS, 
+                       WRITEDATA, RegWrite, clk, READDATA1, READDATA2);
+    SE1: SE port map(INSTR1(15 downto 0), CONSTANT_VALUE0);
 
     -- Hazard Detection Unit
     MUXHDUIN <= RegDstx&Jumpx&Branchx&MemReadx&MemtoRegx&MemWritex&ALUSrcx&RegWritex&ALUOpx;
-    
-    HDU1: HDU port map(
-        I1 => INSTR1,
-        I2 => RT,
-        I3 => MemRead1,
-        O1 => MUXCtrl,
-        O2 => PCEnable0,
-        O3 => IFIDEnable0
-    );
-    
-    MUX8: MUX generic map(N => 11)
-              port map(
-                  I1 => MUXHDUIN,
-                  I2 => "00000000000",
-                  C1 => MUXCtrl,
-                  O1 => MUXHDUOUT
-              );
+    HDU1: HDU port map(INSTR1, RT, MemRead1, MUXCtrl, PCEnable0, IFIDEnable0);
+    MUX8: MUX generic map(N => 11) port map(MUXHDUIN, "00000000000", MUXCtrl, MUXHDUOUT);
 
     RegDst0 <= MUXHDUOUT(10);
     Jump0 <= MUXHDUOUT(9);
@@ -311,262 +263,156 @@ begin
     ALUOp0 <= MUXHDUOUT(2 downto 0);
 
     -- ID/EX Pipeline Register
-    IDEX1: IDEX port map(
-        I1 => SUM1,
-        I2 => READDATA1,
-        I3 => READDATA2,
-        I4 => CONSTANT_VALUE0,
-        I5 => INSTR1(20 downto 16),
-        I6 => INSTR1(15 downto 11),
-        IA1 => INSTR1(25 downto 21),
-        I7 => RegDst0,
-        I8 => Jump0,
-        I9 => Branch0,
-        I10 => MemtoReg0,
-        I11 => ALUSrc0,
-        I12 => MemRead0,
-        I13 => MemWrite0,
-        I14 => RegWrite0,
-        I15 => ALUOp0,
-        O1 => SUM2,
-        O2 => D1,
-        O3 => D2,
-        O4 => CONSTANT_VALUE1,
-        O5 => D3,
-        O6 => D4,
-        OA1 => RS,
-        O7 => RegDst,
-        O8 => Jump1,
-        O9 => Branch1,
-        O10 => MemtoReg1,
-        O11 => ALUSrc,
-        O12 => MemRead1,
-        O13 => MemWrite1,
-        O14 => RegWrite1,
-        O15 => ALUOp,
-        C1 => '1',
-        clk => clk
-    );
-    
+    IDEX1: IDEX port map(SUM1, READDATA1, READDATA2, CONSTANT_VALUE0, 
+                         INSTR1(20 downto 16), INSTR1(15 downto 11), INSTR1(25 downto 21),
+                         RegDst0, Jump0, Branch0, MemtoReg0, ALUSrc0, MemRead0, MemWrite0, 
+                         RegWrite0, ALUOp0, SUM2, D1, D2, CONSTANT_VALUE1, D3, D4, RS,
+                         RegDst, Jump1, Branch1, MemtoReg1, ALUSrc, MemRead1, MemWrite1, 
+                         RegWrite1, ALUOp, '1', clk);
     RT <= D3;
     RD <= D4;
 
     -- Execution Stage
-    ALUC1: ALUC port map(
-        I1 => ALUOp,
-        I2 => CONSTANT_VALUE1(5 downto 0),
-        O1 => ALUCTRL
-    );
-    
-    -- Forwarding Unit
-    FU1: FU port map(
-        I1 => WR_ADDRESS1,
-        I2 => WR_ADDRESS,
-        I3 => RS,
-        I4 => RT,
-        C1 => RegWrite2,
-        C2 => RegWrite,
-        O1 => EN1,
-        O2 => EN2
-    );
-    
-    MUX5: MUX3 generic map(N => 32)
-               port map(
-                   I1 => D1,
-                   I2 => WRITEDATA,
-                   I3 => DATA_ADDRESS,
-                   C1 => EN1,
-                   O1 => D11
-               );
-    
-    MUX6: MUX3 generic map(N => 32)
-               port map(
-                   I1 => D2,
-                   I2 => WRITEDATA,
-                   I3 => DATA_ADDRESS,
-                   C1 => EN2,
-                   O1 => D12
-               );
-    
-    MUX2: MUX generic map(N => 32)
-              port map(
-                  I1 => D12,
-                  I2 => CONSTANT_VALUE1,
-                  C1 => ALUSrc,
-                  O1 => D5
-              );
-    
-    ALU1: ALU port map(
-        I1 => D11,
-        I2 => D5,
-        C1 => ALUCTRL,
-        O1 => DATA_ADDRESS0,
-        O2 => Z0
-    );
-    
-    MUX7: MUX generic map(N => 5)
-              port map(
-                  I1 => D3,
-                  I2 => D4,
-                  C1 => RegDst,
-                  O1 => WR_ADDRESS0
-              );
-    
-    SL2: SL generic map(N => 32, M => 32)
-            port map(
-                I1 => CONSTANT_VALUE1,
-                O1 => D6
-            );
-    
-    ADD2: ADDER port map(
-        I1 => SUM2,
-        I2 => D6,
-        O1 => D7
-    );
+    ALUC1: ALUC port map(ALUOp, CONSTANT_VALUE1(5 downto 0), ALUCTRL);
+    FU1: FU port map(WR_ADDRESS1, WR_ADDRESS, RS, RT, RegWrite2, RegWrite, EN1, EN2);
+    MUX5: MUX3 generic map(N => 32) port map(D1, WRITEDATA, DATA_ADDRESS, EN1, D11);
+    MUX6: MUX3 generic map(N => 32) port map(D2, WRITEDATA, DATA_ADDRESS, EN2, D12);
+    MUX2: MUX generic map(N => 32) port map(D12, CONSTANT_VALUE1, ALUSrc, D5);
+    ALU1: ALU port map(D11, D5, ALUCTRL, DATA_ADDRESS0, Z0);
+    MUX7: MUX generic map(N => 5) port map(D3, D4, RegDst, WR_ADDRESS0);
+    SL2: SL generic map(N => 32, M => 32) port map(CONSTANT_VALUE1, D6);
+    ADD2: ADDER port map(SUM2, D6, D7);
     
     -- EX/MEM Pipeline Register
-    EXMEM1: EXMEM port map(
-        I1 => D7,
-        I2 => DATA_ADDRESS0,
-        I3 => D12,
-        I5 => WR_ADDRESS0,
-        I8 => Jump1,
-        I9 => Branch1,
-        I10 => MemtoReg1,
-        I12 => MemRead1,
-        I13 => MemWrite1,
-        I14 => RegWrite1,
-        I15 => Z0,
-        O1 => BRANCH_ADDRESS,
-        O2 => DATA_ADDRESS,
-        O3 => DATA_WRITE,
-        O5 => WR_ADDRESS1,
-        O8 => Jump,
-        O9 => Branch,
-        O10 => MemtoReg2,
-        O12 => MemRead,
-        O13 => MemWrite,
-        O14 => RegWrite2,
-        O15 => Z1,
-        C1 => '1',
-        clk => clk
-    );
+    EXMEM1: EXMEM port map(D7, DATA_ADDRESS0, D12, WR_ADDRESS0, 
+                           Jump1, Branch1, MemtoReg1, MemRead1, MemWrite1, RegWrite1, Z0,
+                           BRANCH_ADDRESS, DATA_ADDRESS, DATA_WRITE, WR_ADDRESS1,
+                           Jump, Branch, MemtoReg2, MemRead, MemWrite, RegWrite2, Z1, 
+                           '1', clk);
     
     -- Memory Stage
-    DM1: DATAMEM port map(
-        I1 => DATA_ADDRESS,
-        I2 => DATA_WRITE,
-        C1 => MemWrite,
-        C2 => MemRead,
-        clk => clk,
-        O1 => D8
-    );
-    
+    DM1: DATAMEM port map(DATA_ADDRESS, DATA_WRITE, MemWrite, MemRead, clk, D8);
     ANDCTRL <= Branch and Z1;
     
     -- MEM/WB Pipeline Register
-    MEMWB1: MEMWB port map(
-        I1 => D8,
-        I2 => DATA_ADDRESS,
-        I3 => WR_ADDRESS1,
-        I10 => MemtoReg2,
-        I14 => RegWrite2,
-        O1 => D9,
-        O2 => D10,
-        O3 => WR_ADDRESS,
-        O10 => MemtoReg,
-        O14 => RegWrite,
-        C1 => '1',
-        clk => clk
-    );
+    MEMWB1: MEMWB port map(D8, DATA_ADDRESS, WR_ADDRESS1, MemtoReg2, RegWrite2,
+                           D9, D10, WR_ADDRESS, MemtoReg, RegWrite, '1', clk);
 
     -- Write Back Stage
-    MUX4: MUX generic map(N => 32)
-              port map(
-                  I1 => D10,
-                  I2 => D9,
-                  C1 => MemtoReg,
-                  O1 => WRITEDATA
-              );
+    MUX4: MUX generic map(N => 32) port map(D10, D9, MemtoReg, WRITEDATA);
 
     PCEnable <= PCEnable0;
     IFIDEnable <= IFIDEnable0;
 
-    -- Monitoring and Reporting Process
+    -- ENHANCED Monitoring and Reporting Process
     REPORT_PROC: process(clk)
+        variable first_cycle: boolean := true;
     begin
         if rising_edge(clk) then
             cycle_count <= cycle_count + 1;
 
-            -- Divider
+            -- Header banner
             report "========================================" severity note;
-            report "Cycle: " & integer'image(cycle_count) severity note;
+            report "========== CYCLE " & integer'image(cycle_count) & " ===========" severity note;
             report "========================================" severity note;
 
-            -- PC and Instruction Fetch
-            report "PC: " & integer'image(to_integer(unsigned(INSTR_ADDRESS))) severity note;
-            report "Instruction Fetch: 0x" & to_hex_string(INSTR0) severity note;
+            -- IF Stage
+            report ">>> IF STAGE:" severity note;
+            report "    PC = " & integer'image(to_integer(unsigned(INSTR_ADDRESS))) & 
+                   " | Fetching: 0x" & to_hex_string(INSTR0) severity note;
+            if INSTR0 /= X"00000000" then
+                report "    Instruction type: " & decode_instruction(INSTR0) severity note;
+            end if;
 
-            -- Instruction Decode Stage
+            -- ID Stage
             if INSTR1 /= X"00000000" then
-                report "ID Stage - Instruction: 0x" & to_hex_string(INSTR1) severity note;
+                report ">>> ID STAGE:" severity note;
+                report "    Instruction: 0x" & to_hex_string(INSTR1) & 
+                       " (" & decode_instruction(INSTR1) & ")" severity note;
+                report "    Rs=R" & integer'image(to_integer(unsigned(INSTR1(25 downto 21)))) &
+                       " Rt=R" & integer'image(to_integer(unsigned(INSTR1(20 downto 16)))) &
+                       " Rd=R" & integer'image(to_integer(unsigned(INSTR1(15 downto 11)))) severity note;
+                report "    ReadData1=" & integer'image(to_integer(signed(READDATA1))) &
+                       " ReadData2=" & integer'image(to_integer(signed(READDATA2))) severity note;
+            else
+                report ">>> ID STAGE: NOP/Bubble" severity note;
             end if;
 
             -- Hazard Detection
             if MUXCtrl = '1' then
-                report "*** LOAD-USE HAZARD DETECTED - PIPELINE STALLED ***" severity note;
+                report "*** HAZARD DETECTED! Pipeline stalled ***" severity warning;
+                report "    PCEnable=" & std_ulogic'image(PCEnable) & 
+                       " IFIDEnable=" & std_ulogic'image(IFIDEnable) severity warning;
             end if;
 
-            -- Forwarding Status
-            if EN1 /= "00" then
-                case EN1 is
-                    when "01" => report "FORWARDING - Source 1: from WB stage" severity note;
-                    when "10" => report "FORWARDING - Source 1: from MEM stage" severity note;
-                    when others => null;
-                end case;
-            end if;
-
-            if EN2 /= "00" then
-                case EN2 is
-                    when "01" => report "FORWARDING - Source 2: from WB stage" severity note;
-                    when "10" => report "FORWARDING - Source 2: from MEM stage" severity note;
-                    when others => null;
-                end case;
-            end if;
-
-            -- ALU Operation
-            if RegWrite1 = '1' then
-                report "EX Stage - ALU Result: " & integer'image(to_integer(signed(DATA_ADDRESS0))) severity note;
-            end if;
-
-            -- Memory Operations
-            if MemRead = '1' then
-                report "MEM Stage - Reading from address: " & integer'image(to_integer(unsigned(DATA_ADDRESS))) &
-                       " Data: " & integer'image(to_integer(signed(D8))) severity note;
-            end if;
-
-            if MemWrite = '1' then
-                report "MEM Stage - Writing to address: " & integer'image(to_integer(unsigned(DATA_ADDRESS))) &
-                       " Data: " & integer'image(to_integer(signed(DATA_WRITE))) severity note;
-            end if;
-
-            -- Write Back Stage
-            if RegWrite = '1' and WR_ADDRESS /= "00000" then
-                report "WB Stage - Writing to Register R" & integer'image(to_integer(unsigned(WR_ADDRESS))) &
-                       " Value: " & integer'image(to_integer(signed(WRITEDATA))) severity note;
+            -- EX Stage
+            if RegWrite1 = '1' or ALUSrc = '1' then
+                report ">>> EX STAGE:" severity note;
+                report "    ALU Input A (D11) = " & integer'image(to_integer(signed(D11))) severity note;
+                report "    ALU Input B (D5)  = " & integer'image(to_integer(signed(D5))) severity note;
+                report "    ALU Control = " & integer'image(to_integer(unsigned(ALUCTRL))) severity note;
+                report "    ALU Result = " & integer'image(to_integer(signed(DATA_ADDRESS0))) severity note;
                 
-                -- Print result when writing to R4
-                if WR_ADDRESS = "00100" then
-                    report "========================================" severity note;
-                    report "*** RESULT: 4 + 5 = " & integer'image(to_integer(signed(WRITEDATA))) & " ***" severity note;
-                    report "========================================" severity note;
+                -- Forwarding status
+                if EN1 /= "00" then
+                    case EN1 is
+                        when "01" => report "    FORWARD A: from WB stage" severity note;
+                        when "10" => report "    FORWARD A: from MEM stage" severity note;
+                        when others => null;
+                    end case;
+                end if;
+                if EN2 /= "00" then
+                    case EN2 is
+                        when "01" => report "    FORWARD B: from WB stage" severity note;
+                        when "10" => report "    FORWARD B: from MEM stage" severity note;
+                        when others => null;
+                    end case;
                 end if;
             end if;
+
+            -- MEM Stage
+            if MemRead = '1' then
+                report ">>> MEM STAGE: LOAD" severity note;
+                report "    Address: " & integer'image(to_integer(unsigned(DATA_ADDRESS))) &
+                       " | Data read: " & integer'image(to_integer(signed(D8))) severity note;
+            elsif MemWrite = '1' then
+                report ">>> MEM STAGE: STORE" severity note;
+                report "    Address: " & integer'image(to_integer(unsigned(DATA_ADDRESS))) &
+                       " | Data write: " & integer'image(to_integer(signed(DATA_WRITE))) severity note;
+            elsif RegWrite2 = '1' then
+                report ">>> MEM STAGE: ALU result passing through" severity note;
+                report "    Data: " & integer'image(to_integer(signed(DATA_ADDRESS))) severity note;
+            end if;
+
+            -- WB Stage
+            if RegWrite = '1' and WR_ADDRESS /= "00000" then
+                report ">>> WB STAGE: Writing to Register File" severity note;
+                report "    R" & integer'image(to_integer(unsigned(WR_ADDRESS))) & 
+                       " <= " & integer'image(to_integer(signed(WRITEDATA))) severity note;
+                
+                -- Special notification for R4 (the result)
+                if WR_ADDRESS = "00100" then
+                    report "" severity note;
+                    report "+------------------------------------+" severity note;
+                    report "¦  *** FINAL RESULT COMPUTED! ***   ¦" severity note;
+                    report "¦  R4 = " & integer'image(to_integer(signed(WRITEDATA))) & 
+                           " (Expected: 9)           ¦" severity note;
+                    report "¦  Calculation: 4 + 5 = " & 
+                           integer'image(to_integer(signed(WRITEDATA))) & "           ¦" severity note;
+                    report "+------------------------------------+" severity note;
+                    report "" severity note;
+                end if;
+            end if;
+
+            report "" severity note;  -- Blank line for readability
 
             -- Stop simulation after enough cycles
             if cycle_count >= 15 then
                 sim_done <= true;
-                report "Simulation Complete" severity note;
+                report "========================================" severity note;
+                report "    SIMULATION COMPLETE" severity note;
+                report "    Total Cycles: " & integer'image(cycle_count) severity note;
+                report "========================================" severity note;
             end if;
 
         end if;
