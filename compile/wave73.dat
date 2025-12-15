@@ -1,0 +1,21 @@
+$WAVE4TIMED
+$RESOLUTION 1000
+I 1 "a#12#REGISTERFILE1 rict0 31 a#30#std_ulogic_vector(31 downto 0)1 ricd31 0 e#10#std_ulogicc9 UX01ZWLH-"
+I 2 "a#30#std_ulogic_vector(31 downto 0)1 ricd31 0 e#10#std_ulogicc9 UX01ZWLH-"
+I 3 "e#10#std_ulogicc9 UX01ZWLH-"
+$BUS S 4097 1 32 "REG1/M1"
+$SC 1-4093/4
+$S +37 3 clk
+I 4 "i#7#integerrict-2147483648 2147483647 "
+$S +4 4 cycle_count
+$BUS S +132 2 32 INSTR0
+$SC 4138-+124/4
+$BUS S +133 2 32 5 0 _ADDRESS
+$SC 4267-+124/4
+$BUS S +133 2 32 WRITEDATA
+$SC 4396-+124/4
+I 5 "a#29#std_ulogic_vector(4 downto 0)1 ricd4 0 e#10#std_ulogicc9 UX01ZWLH-"
+$BUS S +25 5 5 WR_ADDRESS
+$SC +-20-+16/4
+$S +5 3 RegWrite
+$ENDWAVE

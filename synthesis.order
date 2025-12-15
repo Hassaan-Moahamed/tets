@@ -5,7 +5,6 @@ i<>.\src\CONTROL.vhd
 i<>.\src\DATAMEM.vhd
 i<>.\src\EXMEM.vhd
 i<>.\src\FU.vhd
-i<>.\src\HDU.vhd
 i<>.\src\IDEX.vhd
 i<>.\src\IFID.vhd
 i<>.\src\IM.vhd
@@ -19,3 +18,4 @@ i<>.\src\SG.vhd
 i<>.\src\SL.vhd
 i<>.\src\MIPS_TB.vhd
 i<>.\src\MIPS_TOP.vhd
+i<>.\src\HDU.vhd

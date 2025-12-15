@@ -16,20 +16,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- ============================================
---**********************************************************
---*   PIPELINE REGISTERS: INSTRUCTION DECODE - EXECUTION   *
---*							   *
---*   - X7 -> RegDst		X			   *
---*   - X8 -> Jump		XX	                   *
---*   - X9 -> Branch		XX	                   *
---*   - X10 -> MemtoReg		XXX	                   *
---*   - X11 -> ALUSrc		X			   *
---*   - X12 -> MemRead		XX			   *
---*   - X13 -> MemWrite		XX			   *
---*   - X14 -> RegWrite		XXX			   *
---*   - X15 -> ALUOp		X			   *
---**********************************************************
+
 
 library ieee;
 use ieee.std_logic_1164.all;

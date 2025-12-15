@@ -3,9 +3,9 @@
 .\src\ALUC.vhd
 .\src\CONTROL.vhd
 .\src\DATAMEM.vhd
+.\src\HDU.vhd
 .\src\EXMEM.vhd
 .\src\FU.vhd
-.\src\HDU.vhd
 .\src\IDEX.vhd
 .\src\IFID.vhd
 .\src\IM.vhd

@@ -1,0 +1,284 @@
+$WAVE4TIMED
+$RESOLUTION 1000
+I 1 "e#10#std_ulogicc9 UX01ZWLH-"
+$S 1 1 clk
+I 2 "a#29#std_ulogic_vector(4 downto 0)1 ricd4 0 e#10#std_ulogicc9 UX01ZWLH-"
+$BUS S 25 2 5 WR_ADDRESS
+$SC 5-21/4
+I 3 "a#12#REGISTERFILE1 rict0 31 a#30#std_ulogic_vector(31 downto 0)1 ricd31 0 e#10#std_ulogicc9 UX01ZWLH-"
+I 4 "a#30#std_ulogic_vector(31 downto 0)1 ricd31 0 e#10#std_ulogicc9 UX01ZWLH-"
+$BUS S 4122 3 32 "REG1/M1"
+$SC 26-4118/4
+I 5 "i#7#integerrict-2147483648 2147483647 "
+$S +37 5 cycle_count
+$BUS S +132 4 32 INSTR0
+$SC 4159-+124/4
+$BUS S +133 4 32 5 0 _ADDRESS
+$SC 4288-+124/4
+$BUS S +133 4 32 WRITEDATA
+$SC 4417-+124/4
+$S +5 1 RegWrite
+$ENDTIME 1000000
+$WAVES 4215
+=0 T 0
+=1 D 0 1
+=2 D 0 3
+=3 D 450k 6
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES 1
+*0
+R 1 20 =4 D 50k 1
+$VALUES
+R 2 10 0 1
+V 1
+0
+$END
+$WAVES 4404
+*0
+*1
+=5 D 50k 3
+R 1 2 =6 D 100k 3
+=7 D 200k 3
+R 1 5 *6
+$VALUES
+V 1
+U
+R 2 5 0 1
+$END
+$WAVES 4219
+*0
+*1
+=8 D 50k 6
+=9 D 400k 6
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +181
+*0
+*1
+=10 D 150k 3
+=11 D 300k 3
+R 1 2 *7
+$VALUES
+V 1
+U
+R 2 2 0 1
+V 1
+0
+$END
+$WAVES 4175
+*0
+*1
+*2
+=12 D 150k 6
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +108
+*0
+*1
+*8
+=13 D 100k 6
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +263
+*0
+*1
+=14 D 250k 3
+*11
+*6
+$VALUES
+V 1
+U
+R 2 2 0 1
+$END
+$WAVES 17
+*0
+*1
+=15 D 350k 3
+*11
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES 4533
+*0
+*1
+*2
+=16 D 0 4
+=17 D 350k 6
+=18 D 500k 6
+$VALUES
+R 2 2 U 0
+V 2
+1
+0
+$END
+$WAVES 398
+*0
+=19 D 450k 2
+$VALUES
+V 2
+0
+1
+$END
+$WAVES 4396
+*0
+*1
+=20 D 450k 3
+=21 D 400k 3
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +145
+*0
+*1
+*2
+*16
+*3
+=22 D 300k 6
+$VALUES
+R 2 2 U 0
+V 2
+1
+0
+$END
+$WAVES 21
+*0
+*1
+*20
+*7
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES 13
+*0
+*1
+=23 D 650k 3
+*7
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES 654
+*0
+=24 D 750k 2
+$VALUES
+V 2
+0
+1
+$END
+$WAVES +8
+*0
+*24
+=25 D 100k 2
+$VALUES
+V 3
+0
+1
+0
+$END
+$WAVES 4392
+*0
+*1
+=26 D 850k 3
+$VALUES
+V 3
+U
+0
+1
+$END
+$WAVES 5 9 4159-+12/4 +8-+12/4 +8-+12/4 +12 +4 +8-+44/4 +9-+100/4 +20 +4
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 26-394/4 +8-522/4 +8 +8-650/4 +8 +8-4118/4
+*0
+$VALUES
+V 1
+0
+$END
+$WAVES 526 +8
+*0
+=27 D 550k 2
+$VALUES
+V 2
+0
+1
+$END
+$WAVES 4195 +36
+*0
+*1
+*12
+*22
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +186-+112/4 +8
+*0
+*1
+*2
+*16
+$VALUES
+R 2 2 U 0
+$END
+$WAVES 4155
+*0
+=28 D 50k 2
+R 1 9 *25
+$VALUES
+V 11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$END
+$ENDWAVE

@@ -1,10 +1,10 @@
-1326
-~E 1 "./src/HDU.vhd" 5 hdu
+2014
+~E 1 "./src/HDU.vhd" 8 hdu
 ~A 1 "./src/HDU.vhd" 15 hdu1
 ~E 1 "./src/CONTROL.vhd" 30 control
-~A 1 "./src/CONTROL.vhd" 36 ctrl1
+~A 1 "./src/CONTROL.vhd" 59 ctrl1
 ~E 1 "./src/ALU.vhd" 26 alu
-~A 1 "./src/ALU.vhd" 31 alu1
+~A 1 "./src/ALU.vhd" 32 alu1
 ~E 1 "./src/ADDER.vhd" 16 adder
 ~A 1 "./src/ADDER.vhd" 21 add1
 ~E 1 "./src/ALUC.vhd" 32 aluc
@@ -22,7 +22,7 @@
 ~E 1 "./src/IFID.vhd" 9 ifid
 ~A 1 "./src/IFID.vhd" 15 ifid1
 ~E 1 "./src/IDEX.vhd" 38 idex
-~A 1 "./src/IDEX.vhd" 50 idex1
+~A 1 "./src/IDEX.vhd" 37 idex1
 ~E 1 "./src/IM.vhd" 18 im
 ~A 1 "./src/IM.vhd" 24 im1
 ~E 1 "./src/MIPS_TB.vhd" 18 mips_tb
@@ -30,7 +30,7 @@
 ~E 1 "./src/MIPS_TB.vhd" 17 mips_comprehensive_tb
 ~A 1 "./src/MIPS_TB.vhd" 14 tb_arch
 ~E 1 "./src/MIPS_TOP.vhd" 11 mips_top
-~A 1 "./src/MIPS_TOP.vhd" 14 mips_arch
+~A 1 "./src/MIPS_TB.vhd" 15 mips_arch
 ~E 1 "./src/SE.vhd" 9 se
 ~A 1 "./src/SE.vhd" 14 se1
 ~E 1 "./src/PC.vhd" 9 pc

@@ -1,4 +1,4 @@
-													--*   . 100000 => R                         *
+--*   . 100000 => R                         *
 --*   . 000001 => arithmetic I (sum)        *
 --*   . 000010 => data transfer I load      *
 --*   . 000011 => data transfer I store     *
@@ -27,6 +27,29 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+--*******************************************
+--*   CONTROL UNIT - UPDATED WITH NOP      *
+--*******************************************
+--* --Instruction code-(opcode)------------ *
+--*                                         *
+--*   . 000000 => R                         *
+--*   . 000001 => arithmetic I (sum)        *
+--*   . 000010 => data transfer I load      *
+--*   . 000011 => data transfer I store     *
+--*   . 000100 => logical I (and)           *
+--*   . 000101 => logical I (or)            *
+--*   . 000110 => logical I (shift left)    *
+--*   . 000111 => logical I (shift right)   *
+--*   . 001000 => conditional branch J      *
+--*   . 010000 => unconditional jump J      *
+--*   . 111111 => NOP (NO OPERATION)        *
+--*   . others => none                      *
+--*******************************************
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 entity CONTROL is
 port(I1: in std_ulogic_vector(5 downto 0);
      O1, O2, O3, O4, O5, O7, O8, O9: out std_ulogic;   
@@ -43,7 +66,7 @@ begin
 	
 --	R1 <= (RegDst)&(Jump)&(Branch)&(MemRead)&(MemtoReg)&(ALUOp)&(MemWrite)&(ALUSrc)&(RegWrite)
 	with D1 select R1 <=
-	"10000000001" when "000000", --R
+	"10000000001" when "000000", --R-type
 	"00000001011" when "000001", --I sum arith
 	"00011001011" when "000010", --I sum load
 	"00001001110" when "000011", --I sum store
@@ -53,18 +76,18 @@ begin
 	"00000101011" when "000111", --I sr
 	"00100110010" when "001000", --branch
 	"01000111010" when "010000", --jump
-	"00000000000" when others;   --(also 000000 -> NOP)
+	"00000000000" when "111111", --NOP (all control signals = 0)
+	"00000000000" when others;   --default (also acts as NOP)
 	
 	O1 <= R1(10); --RegDst
-	O2 <= R1(9); --Jump
-	O3 <= R1(8); --Branch
-	O5 <= R1(6); --MemtoReg
-	O8 <= R1(1); --ALUSrc
+	O2 <= R1(9);  --Jump
+	O3 <= R1(8);  --Branch
+	O5 <= R1(6);  --MemtoReg
+	O8 <= R1(1);  --ALUSrc
 	O6 <= R1(5 downto 3); --ALUOp
 
-
-	O4 <= R1(7); --MemRead
-	O7 <= R1(2); --MemWrite
-	O9 <= R1(0); --RegWrite
+	O4 <= R1(7);  --MemRead
+	O7 <= R1(2);  --MemWrite
+	O9 <= R1(0);  --RegWrite
 
 end CTRL1;

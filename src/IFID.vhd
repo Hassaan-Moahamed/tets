@@ -16,8 +16,9 @@ architecture IFID1 of IFID is
 signal	D1, D2: std_ulogic_vector(31 downto 0) := (others => '0');
 signal D3: std_ulogic := '0';
 begin
-	D3 <= C1; --IFIDEnable
-	
+	D3 <= C1; --IFIDEnable important for datahazard stall	
+	-- I1 for pc+4 
+	--I2 for inst
 	pc:process(clk, D3)
 	begin
 		if(clk = '1' and clk'event and D3 = '1') then
