@@ -1,7 +1,4 @@
---*****************
---*   REGISTERS   *
---*   FIXED: Added synchronous write on clock edge
---*****************
+
 
 library ieee;
 use ieee.std_logic_1164.all;

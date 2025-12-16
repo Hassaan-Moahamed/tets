@@ -1,6 +1,6 @@
 --***********************
 --*   Forwarding Unit   *
---*  
+--*  we can forward the data to where we need it
 --***********************
 library ieee;
 use ieee.std_logic_1164.all;
@@ -17,10 +17,10 @@ architecture FU1 of FU is
     signal D5, D6: std_ulogic := '0';
     signal R1, R2: std_ulogic_vector(1 downto 0) := (others => '0');
 begin
-    D1 <= I1;  -- Write Address from EX/MEM (earlier instruction)
-    D2 <= I2;  -- Write Address from MEM/WB (older instruction)
-    D3 <= I3;  -- Rs (source register 1)
-    D4 <= I4;  -- Rt (source register 2)
+    D1 <= I1;  -- Write Address from EX/MEM (earlier instruction)  RD
+    D2 <= I2;  -- Write Address from MEM/WB (older instruction)		 RD
+    D3 <= I3;  -- Rs (source register 1) for current inst
+    D4 <= I4;  -- Rt (source register 2)  for current inst
     D5 <= C1;  -- RegWrite from EX/MEM
     D6 <= C2;  -- RegWrite from MEM/WB
     

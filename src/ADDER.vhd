@@ -1,13 +1,4 @@
---***************************************************
---*   SOMMATORE A 64bit (Adder)                     *
---*                                                 *
---*   Convenzione utilizzata:                       *
---*   In = n-esima porta di input                   *
---*   Cn = n-esima porta di controllo in ingresso   *
---*   On = n-esima porta di output                  *
---*   Dn = n-esimo dato (operando)                  *
---*   Rn = n-esimo risultato                        *
---***************************************************
+
 
 library ieee;
 use ieee.std_logic_1164.all;

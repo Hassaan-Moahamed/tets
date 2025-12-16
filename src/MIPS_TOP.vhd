@@ -1,8 +1,4 @@
---*********************************************************
---*   MIPS PROCESSOR TOP LEVEL                           *
---*   5-Stage Pipeline with Forwarding Unit              *
---*   No Cache - Direct Memory Access                    *
---*********************************************************
+
 
 library ieee;
 use ieee.std_logic_1164.all;

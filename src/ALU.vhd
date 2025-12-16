@@ -1,23 +1,5 @@
---*   . 001 => subtract                 *
---*   . 010 => and                      *
---*   . 011 => or                       *
---*   . 100 => nor                      *
---*   . 101 => logical left shift       *
---*   . 110 => logical right shift      *
---*   . 111 => *2^16                    *
---*                                     *
---*   Inputs note:                      *
---*   .I1 is the input from registers   *
---*   .I2 is the input from mux         *
---*                                     *
---*   FlagZ note:                       *
---*   .O2 = 1 if inputs are equal       *
---*   .O2 = 0 if inputs are not equal   *
---*                                     *
---***************************************
---*   ALU (Arithmetic Logic Unit)       *
---*   FIXED: Proper logical shifts      *
---***************************************
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

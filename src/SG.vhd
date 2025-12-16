@@ -1,10 +1,3 @@
---****************************************************************
---*   GENERATORE DI SEGNALI:                                     *
---*   Generatore di 4 segnali di test per il testing del MIPS.   *
---*   NOTA: setto i valori di cambiamento dei dati in modo       *
---*   che non la variazione non avvenza in concomitanza          *
---*   al fronte del clock.                                       *
---****************************************************************
 
 library ieee;
 use ieee.std_logic_1164.all;

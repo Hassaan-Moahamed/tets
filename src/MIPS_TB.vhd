@@ -200,14 +200,18 @@ signal RegDst0, Jump0, Branch0, MemRead0, MemtoReg0, MemWrite0, ALUSrc0, RegWrit
 signal Jump1, Branch1, MemRead1, MemtoReg1, MemWrite1, RegWrite1: std_ulogic := '0';
 signal MemtoReg2, RegWrite2, Z0, Z1, ANDCTRL: std_ulogic := '0';
 signal ALUOp0, ALUOp, ALUCTRL: std_ulogic_vector(2 downto 0) := (others => '0');
-signal EN1, EN2: std_ulogic_vector(1 downto 0) := (others => '0');
+signal EN1 : std_ulogic_vector(1 downto 0) := (others => '0');
+-- Forwarding select for ALU input A (Rs)
+
+signal EN2 : std_ulogic_vector(1 downto 0) := (others => '0');
+-- Forwarding select for ALU input B (Rt)
 
 -- Constant enable signals (HDU removed)
 constant PCEnable: std_ulogic := '1';
 constant IFIDEnable: std_ulogic := '1';
 
 -- Monitoring signals
-signal cycle_count: integer := 0;
+signal cycle_count: integer := 1;
 signal sim_done: boolean := false;
 
 begin

@@ -1,8 +1,4 @@
---**************************************
---*   SHIFT LEFT FROM N bit TO N bit   *
---*                                    *
---*   Shift left of 2 O1 = I1 << 2     *
---**************************************
+
 
 library ieee;
 use ieee.std_logic_1164.all;

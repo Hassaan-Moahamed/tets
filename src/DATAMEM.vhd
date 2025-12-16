@@ -1,8 +1,4 @@
---*******************************************************************
---*   DATAMEM.vhd - Data Memory with Test Initialization           *
---*   Simple direct memory access - no cache                       *
---*   Fixed version with proper initialization for tests           *
---*******************************************************************
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
