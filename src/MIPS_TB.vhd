@@ -401,7 +401,7 @@ begin
             report "" severity note;  -- Blank line for readability
 
             -- Stop simulation after enough cycles
-            if cycle_count >= 15 then
+            if cycle_count >= 20 then
                 sim_done <= true;
                 report "========================================" severity note;
                 report "    SIMULATION COMPLETE" severity note;
