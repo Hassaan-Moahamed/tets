@@ -28,35 +28,9 @@ UCF=
 
 [HierarchyViewer]
 SortInfo=u
-HierarchyInformation=mips_tb|tb_arch|0 
+HierarchyInformation=mips_tb|tb_arch|0  
 ShowHide=ShowTopLevel
 Selected=
-
-[Files.Data]
-.\src\ADDER.vhd=VHDL Source Code
-.\src\ALU.vhd=VHDL Source Code
-.\src\ALUC.vhd=VHDL Source Code
-.\src\CONTROL.vhd=VHDL Source Code
-.\src\DATAMEM.vhd=VHDL Source Code
-.\src\EXMEM.vhd=VHDL Source Code
-.\src\FU.vhd=VHDL Source Code
-.\src\IDEX.vhd=VHDL Source Code
-.\src\IFID.vhd=VHDL Source Code
-.\src\IM.vhd=VHDL Source Code
-.\src\MEMWB.vhd=VHDL Source Code
-.\src\MUX.vhd=VHDL Source Code
-.\src\MUX3.vhd=VHDL Source Code
-.\src\PC.vhd=VHDL Source Code
-.\src\REG.vhd=VHDL Source Code
-.\src\SE.vhd=VHDL Source Code
-.\src\SG.vhd=VHDL Source Code
-.\src\SL.vhd=VHDL Source Code
-.\src\MIPS_TB.vhd=VHDL Source Code
-.\src\MIPS_TOP.vhd=VHDL Source Code
-.\src\instruction.txt=Text File
-.\src\Waveform Editor 1.awf=Waveform File
-.\src\Waveform Editor 2.awf=Waveform File
-.\src\HDU.vhd=VHDL Source Code
 
 [Files]
 /ADDER.vhd=-1
@@ -82,5 +56,29 @@ Selected=
 /MIPS_TOP.vhd=-1
 /instruction.txt=-1
 /Waveform Editor 1.awf=-1
-/Waveform Editor 2.awf=-1
+
+[Files.Data]
+.\src\ADDER.vhd=VHDL Source Code
+.\src\ALU.vhd=VHDL Source Code
+.\src\ALUC.vhd=VHDL Source Code
+.\src\CONTROL.vhd=VHDL Source Code
+.\src\DATAMEM.vhd=VHDL Source Code
+.\src\HDU.vhd=VHDL Source Code
+.\src\EXMEM.vhd=VHDL Source Code
+.\src\FU.vhd=VHDL Source Code
+.\src\IDEX.vhd=VHDL Source Code
+.\src\IFID.vhd=VHDL Source Code
+.\src\IM.vhd=VHDL Source Code
+.\src\MEMWB.vhd=VHDL Source Code
+.\src\MUX.vhd=VHDL Source Code
+.\src\MUX3.vhd=VHDL Source Code
+.\src\PC.vhd=VHDL Source Code
+.\src\REG.vhd=VHDL Source Code
+.\src\SE.vhd=VHDL Source Code
+.\src\SG.vhd=VHDL Source Code
+.\src\SL.vhd=VHDL Source Code
+.\src\MIPS_TB.vhd=VHDL Source Code
+.\src\MIPS_TOP.vhd=VHDL Source Code
+.\src\instruction.txt=Text File
+.\src\Waveform Editor 1.awf=Waveform File
 

@@ -1,11 +1,18 @@
 # ELBREAD: Elaboration process.
 # ELBREAD: Elaboration time 0.0 [s].
-acom $DSN/src/HDU.vhd
+acom $DSN/src/DATAMEM.vhd
 # Compile...
-# File: D:\vhdl\DESIGN3\Design3\src\HDU.vhd
-# Compile Entity "HDU"
-# Entity `HDU' has been skipped - no difference detected.
-# Compile Architecture "HDU1" of Entity "HDU"
+# File: D:\vhdl\DESIGN3\Design3\src\DATAMEM.vhd
+# Compile Entity "DATAMEM"
+# Entity `DATAMEM' has been skipped - no difference detected.
+# Compile Architecture "DATAMEM1" of Entity "DATAMEM"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.0 [s]
+acom $DSN/src/DATAMEM.vhd
+# Compile...
+# File: D:\vhdl\DESIGN3\Design3\src\DATAMEM.vhd
+# Compile Entity "DATAMEM"
+# Entity `DATAMEM' has been skipped - no difference detected.
+# Compile Architecture "DATAMEM1" of Entity "DATAMEM"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.0 [s]
 acom $DSN/src/MIPS_TB.vhd
 # Compile...
@@ -28,10 +35,10 @@ asim mips_tb tb_arch
 # ELAB2: Elaboration final pass complete - time: 0.3 [s].
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:35 ?, 15 I???E?, 2025
+# 03:37 ?, 16 I???E?, 2025
 # Simulation has been initialized
 # Selected Top-Level: mips_tb (tb_arch)
-run 900 ns
+run 4000ns
 # EXECUTION:: NOTE   : ========================================
 # EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : ========== CYCLE 0 ===========
@@ -150,9 +157,9 @@ run 900 ns
 # EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0x00432000
+# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0xFC000000
 # EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
 # EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -192,11 +199,11 @@ run 900 ns
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x00432000 (R-type (ADD/SUB/AND/OR/NOR))
+# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R2 Rt=R3 Rd=R4
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=0
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
 # EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -212,328 +219,9 @@ run 900 ns
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0xFC000000
+# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0x00432000
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 9
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     FORWARD B: from WB stage
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R3 <= 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 7 ===========
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 28 | Fetching: 0xFC000000
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 9
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 8 ===========
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0x00000000
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R4 <= 9
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at time: 900 ns
-restart
-# All when statements cleared.
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# ELAB2: Create instances complete.
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:35 ?, 15 I???E?, 2025
-# Simulation has been initialized
-# Selected Top-Level: mips_tb (tb_arch)
-endsim
-# All when statements cleared.
-# Simulation has been stopped
-acom $DSN/src/MIPS_TB.vhd
-# Compile...
-# File: D:\vhdl\DESIGN3\Design3\src\MIPS_TB.vhd
-# Compile Entity "MIPS_TOP"
-# Entity `MIPS_TOP' has been skipped - no difference detected.
-# Compile Architecture "MIPS_ARCH" of Entity "MIPS_TOP"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-asim mips_tb tb_arch
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# asim: Stack memory: 32MB
-# asim: Retval memory: 32MB
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# ELAB2: Create instances complete.
-# ELAB2: Elaboration final pass complete - time: 0.3 [s].
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:35 ?, 15 I???E?, 2025
-# Simulation has been initialized
-# Selected Top-Level: mips_tb (tb_arch)
-run 900 ns
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 0 ===========
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 0 | Fetching: 0x08020000
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 1 ===========
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 4 | Fetching: 0xFC000000
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08020000 (LOAD (lw))
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R2 Rd=R0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 2 ===========
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 8 | Fetching: 0x08030001
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 3 ===========
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 12 | Fetching: 0xFC000000
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08030001 (LOAD (lw))
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R3 Rd=R0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 0 | Data read: 4
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 4 ===========
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0x00432000
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R2 <= 4
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 5 ===========
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 20 | Fetching: 0xFC000000
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x00432000 (R-type (ADD/SUB/AND/OR/NOR))
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R2 Rt=R3 Rd=R4
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=0
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 1 | Data read: 5
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 6 ===========
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0xFC000000
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -542,18 +230,6 @@ run 900 ns
 # EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 9
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     FORWARD B: from WB stage
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
 # EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -575,318 +251,11 @@ run 900 ns
 # EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 9
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 8 ===========
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0x00000000
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R4 <= 9
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at time: 900 ns
-endsim
-# All when statements cleared.
-# Simulation has been stopped
-acom $DSN/src/MIPS_TB.vhd
-# Compile...
-# File: D:\vhdl\DESIGN3\Design3\src\MIPS_TB.vhd
-# Compile Entity "MIPS_TOP"
-# Entity `MIPS_TOP' has been skipped - no difference detected.
-# Compile Architecture "MIPS_ARCH" of Entity "MIPS_TOP"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-asim mips_tb tb_arch
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# asim: Stack memory: 32MB
-# asim: Retval memory: 32MB
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# ELAB2: Create instances complete.
-# ELAB2: Elaboration final pass complete - time: 0.3 [s].
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:36 ?, 15 I???E?, 2025
-# Simulation has been initialized
-# Selected Top-Level: mips_tb (tb_arch)
-run 2000 ns
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 0 ===========
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 0 | Fetching: 0x08020000
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 1 ===========
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 4 | Fetching: 0xFC000000
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08020000 (LOAD (lw))
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R2 Rd=R0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 2 ===========
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 8 | Fetching: 0x08030001
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 3 ===========
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 12 | Fetching: 0xFC000000
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08030001 (LOAD (lw))
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R3 Rd=R0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 0 | Data read: 4
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 4 ===========
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0x00432000
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R2 <= 4
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 5 ===========
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 20 | Fetching: 0xFC000000
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Instruction: 0x00432000 (R-type (ADD/SUB/AND/OR/NOR))
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Rs=R2 Rt=R3 Rd=R4
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=0
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 1 | Data read: 5
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 6 ===========
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0xFC000000
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 9
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     FORWARD B: from WB stage
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R3 <= 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
 # EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 7 ===========
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 28 | Fetching: 0xFC000000
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 9
+# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=5
 # EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -898,7 +267,9 @@ run 2000 ns
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0xFC000000
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -908,23 +279,15 @@ run 2000 ns
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
+# EXECUTION:: NOTE   : >>> EX STAGE:
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R4 <= 9
+# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
+# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
+# EXECUTION:: NOTE   :     ALU Control = 0
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
+# EXECUTION:: NOTE   :     ALU Result = 9
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -936,491 +299,21 @@ run 2000 ns
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 36 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 36 | Fetching: 0x40000009
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: JUMP (j)
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
+# EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 10 ===========
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 40 | Fetching: 0x00000000
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 11 ===========
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 44 | Fetching: 0x00000000
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 12 ===========
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 48 | Fetching: 0x00000000
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 13 ===========
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 52 | Fetching: 0x00000000
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 14 ===========
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 56 | Fetching: 0x00000000
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 15 ===========
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 60 | Fetching: 0x00000000
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at delta: 1 at time 1550 ns.
-# Stopped at breakpoint in file D:\vhdl\DESIGN3\Design3/src/MIPS_TB.vhd at line 411.
-endsim
-# All when statements cleared.
-# Simulation has been stopped
-acom $DSN/src/MIPS_TB.vhd
-# Compile...
-# File: D:\vhdl\DESIGN3\Design3\src\MIPS_TB.vhd
-# Compile Entity "MIPS_TOP"
-# Entity `MIPS_TOP' has been skipped - no difference detected.
-# Compile Architecture "MIPS_ARCH" of Entity "MIPS_TOP"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-asim mips_tb tb_arch
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# asim: Stack memory: 32MB
-# asim: Retval memory: 32MB
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# ELAB2: Create instances complete.
-# ELAB2: Elaboration final pass complete - time: 0.3 [s].
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:36 ?, 15 I???E?, 2025
-# Simulation has been initialized
-# Selected Top-Level: mips_tb (tb_arch)
-run 2000 ns
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 0 ===========
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 0 | Fetching: 0x08020000
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 1 ===========
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 4 | Fetching: 0xFC000000
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08020000 (LOAD (lw))
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R2 Rd=R0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 2 ===========
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 8 | Fetching: 0x08030001
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 3 ===========
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 12 | Fetching: 0xFC000000
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08030001 (LOAD (lw))
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R3 Rd=R0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 0 | Data read: 4
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 4 ===========
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0x00432000
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R2 <= 4
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 5 ===========
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 20 | Fetching: 0xFC000000
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x00432000 (R-type (ADD/SUB/AND/OR/NOR))
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R2 Rt=R3 Rd=R4
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=0
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 1 | Data read: 5
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 6 ===========
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0xFC000000
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 9
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     FORWARD B: from WB stage
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R3 <= 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 7 ===========
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 28 | Fetching: 0xFC000000
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Data: 9
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 8 ===========
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0x00000000
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R4 <= 9
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 9 ===========
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 36 | Fetching: 0x00000000
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1432,19 +325,35 @@ run 2000 ns
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 40 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 40 | Fetching: 0xFC000000
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
+# EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
+# EXECUTION:: NOTE   :     Instruction: 0x40000009 (JUMP (j))
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
+# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     R4 <= 9
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : 
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : +------------------------------------+
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : +------------------------------------+
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1456,23 +365,27 @@ run 2000 ns
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 44 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 44 | Fetching: 0x00832801
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : >>> ID STAGE:
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> EX STAGE:
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ALU Input A (D11) = 0
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     ALU Input B (D5)  = 9
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ALU Control = 0
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
+# EXECUTION:: NOTE   :     ALU Result = 9
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1484,23 +397,17 @@ run 2000 ns
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 48 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 48 | Fetching: 0x0C050004
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: STORE (sw)
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
+# EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
+# EXECUTION:: NOTE   :     Instruction: 0x00832801 (R-type (ADD/SUB/AND/OR/NOR))
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     Rs=R4 Rt=R3 Rd=R5
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
+# EXECUTION:: NOTE   :     ReadData1=9 ReadData2=5
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1512,23 +419,27 @@ run 2000 ns
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 52 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 52 | Fetching: 0xFC000000
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : >>> ID STAGE:
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Instruction: 0x0C050004 (STORE (sw))
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R5 Rd=R0
+# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> EX STAGE:
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
+# EXECUTION:: NOTE   :     ALU Input A (D11) = 9
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
+# EXECUTION:: NOTE   :     ALU Control = 1
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
+# EXECUTION:: NOTE   :     ALU Result = 4
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1540,23 +451,33 @@ run 2000 ns
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 56 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 56 | Fetching: 0xFC000000
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   : >>> ID STAGE:
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> EX STAGE:
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ALU Input A (D11) = 0
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     ALU Input B (D5)  = 4
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     ALU Control = 0
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
+# EXECUTION:: NOTE   :     ALU Result = 4
+# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     FORWARD B: from MEM stage
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
+# EXECUTION:: NOTE   :     Data: 4
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
@@ -1568,489 +489,39 @@ run 2000 ns
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : >>> IF STAGE:
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 60 | Fetching: 0x00000000
+# EXECUTION:: NOTE   :     PC = 60 | Fetching: 0xFC000000
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
+# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
+# EXECUTION:: NOTE   : >>> ID STAGE:
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
+# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
+# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
+# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
+# EXECUTION:: NOTE   : >>> MEM STAGE: STORE
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
+# EXECUTION:: NOTE   :     Address: 4 | Data write: 4
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
+# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
+# EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# EXECUTION:: NOTE   :     R5 <= 4
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   : 
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at delta: 1 at time 1550 ns.
-# Stopped at breakpoint in file D:\vhdl\DESIGN3\Design3/src/MIPS_TB.vhd at line 411.
 # EXECUTION:: NOTE   : ========================================
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     SIMULATION COMPLETE
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
 # EXECUTION:: NOTE   :     Total Cycles: 15
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
+# KERNEL: stopped at delta: 1 at time 1550 ns.
+# Stopped at breakpoint in file D:\vhdl\DESIGN3\Design3/src/MIPS_TB.vhd at line 415.
+run 4000ns
 # EXECUTION:: NOTE   : ========================================
 # EXECUTION:: Time: 1550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at time: 3050 ns
+# KERNEL: stopped at time: 5550 ns
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
-endsim
-# All when statements cleared.
-# Simulation has been stopped
-acom $DSN/src/MIPS_TB.vhd
-# Compile...
-# File: D:\vhdl\DESIGN3\Design3\src\MIPS_TB.vhd
-# Compile Entity "MIPS_TOP"
-# Entity `MIPS_TOP' has been skipped - no difference detected.
-# Compile Architecture "MIPS_ARCH" of Entity "MIPS_TOP"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-asim mips_tb tb_arch
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# asim: Stack memory: 32MB
-# asim: Retval memory: 32MB
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# ELAB2: Create instances complete.
-# ELAB2: Elaboration final pass complete - time: 0.3 [s].
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 4224 kB (elbread=1071 elab2=1930 kernel=1223 sdf=0)
-# 10:37 ?, 15 I???E?, 2025
-# Simulation has been initialized
-# Selected Top-Level: mips_tb (tb_arch)
-run 1500ns
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 0 ===========
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 0 | Fetching: 0x08020000
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 50 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 1 ===========
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 4 | Fetching: 0xFC000000
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08020000 (LOAD (lw))
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R2 Rd=R0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 2 ===========
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 8 | Fetching: 0x08030001
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: LOAD (lw)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 3 ===========
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 12 | Fetching: 0xFC000000
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x08030001 (LOAD (lw))
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R3 Rd=R0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 0 | Data read: 4
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 4 ===========
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 16 | Fetching: 0x00432000
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: R-type (ADD/SUB/AND/OR/NOR)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 1
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R2 <= 4
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 5 ===========
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 20 | Fetching: 0xFC000000
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0x00432000 (R-type (ADD/SUB/AND/OR/NOR))
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R2 Rt=R3 Rd=R4
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=4 ReadData2=0
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: LOAD
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Address: 1 | Data read: 5
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 550 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 6 ===========
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 24 | Fetching: 0xFC000000
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 4
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 9
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     FORWARD B: from WB stage
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R3 <= 5
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 650 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 7 ===========
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 28 | Fetching: 0xFC000000
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction type: UNKNOWN
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 9
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 750 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 8 ===========
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 32 | Fetching: 0x00000000
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE:
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Instruction: 0xFC000000 (UNKNOWN)
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Rs=R0 Rt=R0 Rd=R0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ReadData1=0 ReadData2=0
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> WB STAGE: Writing to Register File
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     R4 <= 9
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  *** FINAL RESULT COMPUTED! ***   ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  R4 = 9 (Expected: 9)           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ¦  Calculation: 4 + 5 = 9           ¦
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : +------------------------------------+
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 850 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 9 ===========
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 36 | Fetching: 0x00000000
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 950 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 10 ===========
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 40 | Fetching: 0x00000000
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 11 ===========
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 44 | Fetching: 0x00000000
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1150 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 12 ===========
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 48 | Fetching: 0x00000000
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 13 ===========
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 52 | Fetching: 0x00000000
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1350 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========== CYCLE 14 ===========
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : ========================================
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> IF STAGE:
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     PC = 56 | Fetching: 0x00000000
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> ID STAGE: NOP/Bubble
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> EX STAGE:
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input A (D11) = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Input B (D5)  = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Control = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     ALU Result = 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : >>> MEM STAGE: ALU result passing through
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   :     Data: 0
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# EXECUTION:: NOTE   : 
-# EXECUTION:: Time: 1450 ns,  Iteration: 1,  TOP instance,  Process: REPORT_PROC.
-# KERNEL: stopped at time: 1500 ns
 # Simulation has been stopped
