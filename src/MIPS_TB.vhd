@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity MIPS_TB_CORRECTED is
-end MIPS_TB_CORRECTED;
+entity MIPS_TB is
+end MIPS_TB;
 
-architecture MIPS_ARCH of MIPS_TB_CORRECTED is
+architecture TB_ARCH of MIPS_TB is
 
 -- Component Declarations
 component PC is
@@ -149,8 +149,8 @@ signal D11, D12: std_ulogic_vector(31 downto 0) := (others => '0');
 signal EN1, EN2: std_ulogic_vector(1 downto 0) := (others => '0');
 
 -- EX Stage signals
-signal DATA_ADDRESS0, WR_ADDRESS0: std_ulogic_vector(31 downto 0) := (others => '0');
-signal WR_ADDRESS0_5bit: std_ulogic_vector(4 downto 0) := (others => '0');
+signal DATA_ADDRESS0: std_ulogic_vector(31 downto 0) := (others => '0');
+signal WR_ADDRESS0: std_ulogic_vector(4 downto 0) := (others => '0');
 signal D6, D7: std_ulogic_vector(31 downto 0) := (others => '0');
 signal Z0: std_ulogic := '0';
 
@@ -161,7 +161,7 @@ signal Jump2, Branch2, MemRead, MemtoReg2, MemWrite, RegWrite2, Z1: std_ulogic :
 
 -- MEM Stage signals
 signal D8: std_ulogic_vector(31 downto 0) := (others => '0');
-signal ANDCTRL: std_ulogic := '0';
+signal BRANCH_TAKEN: std_ulogic := '0';
 
 -- MEM/WB Stage signals
 signal D9, D10: std_ulogic_vector(31 downto 0) := (others => '0');
@@ -169,10 +169,9 @@ signal WR_ADDRESS: std_ulogic_vector(4 downto 0) := (others => '0');
 signal MemtoReg, RegWrite: std_ulogic := '0';
 
 -- PC control signals
-signal PC_BRANCH_OR_SEQ: std_ulogic_vector(31 downto 0) := (others => '0');
-signal JUMP_OR_NORMAL: std_ulogic_vector(31 downto 0) := (others => '0');
+signal PC_AFTER_BRANCH: std_ulogic_vector(31 downto 0) := (others => '0');
 
--- Constant enable signals
+-- Always enabled (no stalls)
 constant PCEnable: std_ulogic := '1';
 constant IFIDEnable: std_ulogic := '1';
 
@@ -194,6 +193,18 @@ begin
         wait;
     end process;
 
+    -- Cycle counter for monitoring
+    cycle_counter: process(clk)
+    begin
+        if rising_edge(clk) then
+            cycle_count <= cycle_count + 1;
+            -- Stop simulation after 25 cycles
+            if cycle_count >= 25 then
+                sim_done <= true;
+            end if;
+        end if;
+    end process;
+
     -- ============ INSTRUCTION FETCH STAGE ============
     PC1: PC port map(PCIN, INSTR_ADDRESS, PCEnable, clk);
     
@@ -201,17 +212,6 @@ begin
     
     IM1: IM generic map(N => 128)
            port map(INSTR_ADDRESS, INSTR0);
-    
-    -- Jump address calculation: {PC+4[31:28], instr[25:0], 2'b00}
-    JUMP_ADDRESS <= SUM0(31 downto 28) & INSTR1(25 downto 0) & "00";
-    
-    -- PC Source Selection: Branch or Sequential
-    MUX1: MUX generic map(N => 32)
-              port map(SUM0, BRANCH_ADDRESS, ANDCTRL, PC_BRANCH_OR_SEQ);
-    
-    -- PC Final Selection: Jump or (Branch/Sequential)
-    MUX_JUMP: MUX generic map(N => 32)
-              port map(PC_BRANCH_OR_SEQ, JUMP_ADDRESS, Jump2, PCIN);
 
     -- ============ IF/ID PIPELINE REGISTER ============
     IFID1: IFID port map(SUM0, INSTR0, SUM1, INSTR1, IFIDEnable, clk);
@@ -234,6 +234,11 @@ begin
     );
     
     SE1: SE port map(INSTR1(15 downto 0), CONSTANT_VALUE0);
+    
+    -- Jump address calculation in ID stage
+    -- Format: {PC+4[31:28], instr[25:0], 2'b00}
+    -- SUM1 is PC+4 from IF/ID register
+    JUMP_ADDRESS <= SUM1(31 downto 28) & INSTR1(25 downto 0) & "00";
 
     -- ============ ID/EX PIPELINE REGISTER ============
     IDEX1: IDEX port map(
@@ -272,9 +277,9 @@ begin
     
     -- Write register selection (Rt or Rd)
     MUX7: MUX generic map(N => 5)
-              port map(D3, D4, RegDst, WR_ADDRESS0_5bit);
+              port map(D3, D4, RegDst, WR_ADDRESS0);
     
-    -- Branch address calculation
+    -- Branch address calculation (PC+4 + sign_extended_offset<<2)
     SL2: SL generic map(N => 32, M => 32)
             port map(CONSTANT_VALUE1, D6);
     ADD2: ADDER port map(SUM2, D6, D7);
@@ -282,7 +287,7 @@ begin
     -- ============ EX/MEM PIPELINE REGISTER ============
     EXMEM1: EXMEM port map(
         D7, DATA_ADDRESS0, D12,  -- Branch addr, ALU result, Store data
-        WR_ADDRESS0_5bit,         -- Write register
+        WR_ADDRESS0,              -- Write register
         Jump1, Branch1, MemRead1, MemtoReg1, MemWrite1, RegWrite1, Z0,  -- Control + Zero flag
         BRANCH_ADDRESS, DATA_ADDRESS, DATA_WRITE,  -- Outputs
         WR_ADDRESS1,              -- Write register output
@@ -294,7 +299,19 @@ begin
     DM1: DATAMEM port map(DATA_ADDRESS, DATA_WRITE, MemWrite, MemRead, clk, D8);
     
     -- Branch decision
-    ANDCTRL <= Branch2 and Z1;
+    BRANCH_TAKEN <= Branch2 and Z1;
+    
+    -- ============ PC CONTROL LOGIC ============
+    -- Priority: Jump > Branch > Sequential
+    -- Jump is decided early (in ID), so check it first
+    
+    -- First: Choose between sequential and branch
+    MUX1: MUX generic map(N => 32)
+              port map(SUM0, BRANCH_ADDRESS, BRANCH_TAKEN, PC_AFTER_BRANCH);
+    
+    -- Second: Jump overrides everything (evaluated in ID stage)
+    MUX_JUMP: MUX generic map(N => 32)
+              port map(PC_AFTER_BRANCH, JUMP_ADDRESS, Jump0, PCIN);
     
     -- ============ MEM/WB PIPELINE REGISTER ============
     MEMWB1: MEMWB port map(
@@ -311,5 +328,4 @@ begin
     MUX4: MUX generic map(N => 32)
               port map(D10, D9, MemtoReg, WRITEDATA);
 
-
-end MIPS_ARCH;
+end TB_ARCH;
