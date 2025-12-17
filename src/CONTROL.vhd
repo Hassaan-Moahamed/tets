@@ -43,7 +43,7 @@ begin
 	"00000011011" when "000101", --I or
 	"00000100011" when "000110", --I sl
 	"00000101011" when "000111", --I sr
-	"00100110010" when "001000", --branch
+	"00100110000" when "001000", --branch (FIXED: ALUSrc=0)
 	"01000111010" when "010000", --jump
 	"00000000000" when "111111", --NOP (all control signals = 0)
 	"00000000000" when others;   --default (also acts as NOP)
