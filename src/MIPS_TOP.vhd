@@ -181,9 +181,9 @@ begin
     clkGEN: process
     begin
         clk <= '0';
-        wait for 50 ns;
+        wait for 10 ns;
         clk <= '1';
-        wait for 50 ns;
+        wait for 10 ns;
     end process;
 
     -- ============ INSTRUCTION FETCH STAGE ============

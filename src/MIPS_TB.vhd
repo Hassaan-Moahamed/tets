@@ -186,9 +186,9 @@ begin
     begin
         while not sim_done loop
             clk <= '0';
-            wait for 50 ns;
+            wait for 10 ns;
             clk <= '1';
-            wait for 50 ns;
+            wait for 10 ns;
         end loop;
         wait;
     end process;
@@ -226,7 +226,7 @@ begin
     REG1: REG port map(
         INSTR1(25 downto 21),  -- Rs
         INSTR1(20 downto 16),  -- Rt
-        WR_ADDRESS,            -- Write register
+        WR_ADDRESS,            -- Write register   -- Write-back register address selected by RegDst (rd/rt)
         WRITEDATA,             -- Write data
         RegWrite,              -- RegWrite
         clk,
